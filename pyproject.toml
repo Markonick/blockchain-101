@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "blockchain-101"
+version = "0.1.0"
+description = "Blockchain basics 101"
+authors = ["Nicolas <nicolas.markos@doctorflix.de>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.8.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 100
+# Enable isort rules
+select = ["E", "F", "I"]  # E and F are Python errors, I is import sorting
+
+# Import sorting
+[tool.ruff.isort]
+known-first-party = ["brightbeam_analysis"]  # Treat these as first-party imports
+section-order = ["future", "standard-library", "third-party", "first-party", "local-folder"]
+lines-between-types = 1  # Add a line between different import sections
+
+
+[tool.ruff.lint]
+# Additional rules you might want
+select = [
+    "E",   # pycodestyle
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+]
